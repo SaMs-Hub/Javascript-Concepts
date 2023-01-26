@@ -50,5 +50,33 @@ const newArr = arr.myFilter((element, elementIndex, array) => {
 
 
 
+/// Reduce ///
+const arr = [1, 8, 9, 4];
+
+// Reduce - Inbuilt
+const sum = arr.reduce((acc, curr, currIndex, array) => {
+    return acc + curr;
+}, 0);
+
+// Reduce - Polyfill
+Array.prototype.myReduce = function (cbFunction, initialValue) {
+    var accumulator = initialValue;
+    for (let i = 0; i < this.length; i++) {
+        accumulator = accumulator ? cbFunction(accumulator, this[i], i, this) : this[i];
+
+    }
+
+    return accumulator;
+}
+
+
+const sum = arr.myReduce((acc, curr, currIndex, array) => {
+    return acc + curr;
+}, 0);
+
+// output = 22
+
+
+
 
 
