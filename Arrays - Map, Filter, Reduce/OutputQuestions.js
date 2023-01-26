@@ -43,6 +43,23 @@ console.log(filteredStudents);
 // Output - [ 'Sam', 'Mohit' ]
 
 
+// Q6 - Return total marks for students with marks > 60 after 20 marks have been added to those who scored < 60
+const totalMarks = students.map((student) => {
+    if (student.marks < 60) {
+        student.marks += 20;
+    }
+    return student;
+}).filter((student) => {
+    return student.marks > 60
+}).reduce((acc, current) => {
+    return acc + current.marks;
+}, 0)
+
+console.log(totalMarks);
+// Output - 224
+
+
+
 
 
 
