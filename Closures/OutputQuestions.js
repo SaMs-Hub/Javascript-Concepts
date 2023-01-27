@@ -152,6 +152,35 @@ sam();
 sam();
 
 
+// Q8. Implement Memoization
+function myMemo(func, context){
+    let result = {};
+    return function(...args){
+        var argsCache = JSON.stringify(args);
+        if (!result[argsCache]){
+            result[argsCache] = func.call(context || this, ...args);
+        }
+        return result[argsCache];
+    }
+}
+
+const getProduct = (a, b) => {
+    for (let i = 0; i <= 100000000; i++){
+        
+    }
+    return a * b;
+}
+
+const memoProduct = myMemo(getProduct)
+console.time("1st call");
+console.log(memoProduct(881, 983));
+console.timeEnd("1st call");
+
+console.time("2nd call");
+console.log(memoProduct(881, 983));
+console.timeEnd("2nd call");
+
+
 
 
 
