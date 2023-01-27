@@ -72,6 +72,32 @@ a();
 // gives 0, 1, 2
 
 
+// Q5. Implement private counter
+Ans: 
+const counter = () => {
+    let _counter = 0;
+    
+    const add = (num) => {
+        _counter += num
+    }
+    
+    const get = () => {
+        return _counter;
+    }
+    
+    return {add, get};
+}
+
+const getCounter = counter();
+getCounter.add(4);
+getCounter.add(41);
+console.log(getCounter.get()); // gives 45
+
+
+
+
+
+
 
 
 
