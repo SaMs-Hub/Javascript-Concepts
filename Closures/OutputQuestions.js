@@ -94,6 +94,70 @@ getCounter.add(41);
 console.log(getCounter.get()); // gives 45
 
 
+// Q6: Module Pattern
+var Module = (function(){
+    const private = (i) => {
+        console.log("private:" + i);
+        
+    }
+    
+    return {
+        public: (i) => {
+            return private(i);
+        }
+    }
+})()
+
+Module.public(9); // gives private: 9
+Module.private(9); // gives error
+
+// Q7: Make it run once
+Ans Approach1: let message;
+const helloSam = () => {
+    let count = 0;
+    return () => {
+        if (count > 0){
+            return;
+        }else{
+             message = "Hello SaM;";
+    console.log(message);
+    count++;
+        }
+    }
+   
+}
+
+const heySam = helloSam();
+heySam(); // gives Hello SaM;
+heySam();
+heySam();
+
+// More generic approach
+const once = function(func, context){
+    let ran;
+    return function(){
+        if (func){
+            ran = func.apply(context, this);
+            func = null;
+        }
+    }
+    
+    return ran;
+}
+
+const sam = once(() => console.log("Hello World"));
+
+sam();
+sam();
+sam();
+
+
+
+
+
+
+
+
 
 
 
