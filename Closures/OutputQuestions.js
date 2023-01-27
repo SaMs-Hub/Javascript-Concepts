@@ -15,7 +15,7 @@ let count = 0;
 // var multiply6 = createBase(6);
 // multiply6(10);// returns 60
 // multiply6(21);// returns 126
-const createBase = (a) => {
+Ans: const createBase = (a) => {
     return (b) => {
         console.log(a * b);
     }
@@ -25,7 +25,56 @@ var multiply6 = createBase(6);
 multiply6(21);
 multiply6(10);
 // Output - 126
-60
+//60
+
+
+// Q3 - Optimize time take,
+function find(index) {
+    let a = [];
+  for (let i = 0; i < 1000000; i++) { a[i]= i*i }
+
+  console.log(a[index])
+}
+Ans: 
+const find = (index) => {
+    let arr = [];
+    for (let i= 0; i < 1000000; i++){
+        arr[i] = i * i;
+    }
+    return (index) => {
+        console.log(arr[index]);
+    }
+}
+
+// Q4 - SetTimout optimization
+function a(){
+    for (var i = 0; i < 3; i++){
+       setTimeout(() => {
+           console.log(i);
+       }, i * 1000)
+    }
+}
+
+a(); 
+// gives 3, 3, 3
+Ans:
+function a(){
+    for (var i = 0; i < 3; i++){
+        const printOutput = (i) => {
+           setTimeout(() => {
+           console.log(i);
+       }, i * 1000);
+       }
+         printOutput(i);
+    }
+}
+a();
+// gives 0, 1, 2
+
+
+
+
+
 
 
 
