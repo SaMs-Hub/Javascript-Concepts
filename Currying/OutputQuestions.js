@@ -32,5 +32,39 @@ const add = (a) => {
 
 console.log(add(1)(3)(4)());
 
+// Q4. Dom example
+Ans:
+const updateElement = (classValue) => {
+    return (content) => {
+        return element = document.querySelector("." + classValue).innerHTML = content;
+    }
+}
+
+const manipulateEle = updateElement("some0");
+manipulateEle('hey');
+
+
+// Q5. Implement curry
+Ans:
+const curry = (func) => {
+    return curriedFunc = (...arguments) => {
+        if (arguments.length >= func.length) {
+            return func(...arguments);
+        } else {
+            return (...next) => {
+                return curriedFunc(...arguments, ...next);
+            }
+        }
+    }
+}
+
+const sum = (a, b, c) => a + b + c;
+console.log(sum(1, 2, 3)); // 6
+const totalSum = curry(sum);
+console.log(totalSum(1)(2)(3));  // 6
+
+
+
+
 
 
