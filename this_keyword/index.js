@@ -12,8 +12,8 @@ let user = {
     }
 }
 
-user.getNormalName(); // refers to immediate parent - sam
-user.getArrowName(); // refers to normal parent func - user
+user.getNormalName(); //  sam - refers to immediate parent
+user.getArrowName(); // user - refers to normal parent func 
 
 // In class
 class user {
@@ -29,3 +29,41 @@ class user {
 const User = new user("key");
 User.getName(); // key
 
+
+// Q1 - Output
+const user = {
+    fN: 'Sam',
+    getName() {
+        const fN = "mes";
+        return this.fN;
+    }
+}
+
+console.log(user.getName()); // Sam - as this points to obj to func itself 
+
+
+
+// Q2 - Output Fix
+
+function makeUser() {
+    return {
+        name: 'sam',
+        ref: this,
+    }
+}
+
+let user = makeUser();
+console.log(user.ref.name); // undefined - this points to window
+Fix:
+
+function makeUser() {
+    return {
+        name: 'sam',
+        ref() {
+            return this;
+        }
+    }
+}
+
+let user = makeUser();
+console.log(user.ref().name); // sam
