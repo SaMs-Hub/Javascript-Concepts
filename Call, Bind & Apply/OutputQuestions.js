@@ -72,3 +72,40 @@ for (let i = 0; i < animals.length; i++) {
     printAnimals.call(animals[i], i) // #0 tiger with 13, #1 lion with 15
 
 }
+
+// Q4. Append two arrays
+Ans:
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 7];
+
+arr1.push.apply(arr1, arr2);
+
+console.log(arr1); // [ 1, 2, 3, 4, 5, 7 ]
+
+// Q5. Max & min
+Ans:
+const arr1 = [1, 2, 3, 4, 5, 7];
+
+console.log(Math.max.apply(null, arr1)); // 7
+console.log(Math.min.apply(null, arr1)); // 1
+
+
+// Q5. Bound Output
+    console.log(this);
+}
+
+let user = {
+    g: f.bind(null),
+}
+
+user.g(); // refers to window obj
+
+
+// Q6. Output
+function f() {
+    console.log(this.name);
+}
+
+f = f.bind({ name: "sam" }).bind({ name: "mes" });
+
+f(); // sam - as bind is fixed, 
