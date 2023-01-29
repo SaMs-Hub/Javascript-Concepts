@@ -46,3 +46,29 @@ setTimeout(() => {
     console.log(data.getName()); // mike
     console.log(data.getName.call(this)); // sam - as this points to the context the func is called in
 })
+
+
+// Q3. Output
+const animals = [
+    {
+        name: 'tiger',
+        age: 13,
+    },
+    {
+        name: 'lion',
+        age: 15,
+    }
+]
+
+function printAnimals(i) {
+    this.print = function () {
+        console.log("#" + i + " " + this.name + " with " + this.age);
+    }
+    this.print();
+}
+
+printAnimals();
+for (let i = 0; i < animals.length; i++) {
+    printAnimals.call(animals[i], i) // #0 tiger with 13, #1 lion with 15
+
+}
