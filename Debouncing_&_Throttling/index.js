@@ -23,6 +23,21 @@ btnValue.addEventListener('click', () => {
 
 
 // Debounce Polyfill
+const customDebounce = (cb, delay) => {
+  let timer;
+
+  return function (...args) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      cb(...args)
+    }, delay)
+  }
+}
+
+const debounceCount = customDebounce(() => {
+  customValue.innerHTML = ++customCount;
+
+}, 800);
 
 
 
@@ -41,3 +56,20 @@ btnValue.addEventListener('click', () => {
 
 
 // Lodash polyfill
+const customThrottle = (cb, delay) => {
+  let last = 0;
+
+  return function (...args) {
+    let now = new Date().getTime();
+    if (now - last < delay) return;
+    last = now;
+    return cb(...args);
+  }
+}
+
+const throttleCount = customThrottle(() => {
+  customValue.innerHTML = ++customCount;
+}, 800);
+
+
+
