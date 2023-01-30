@@ -91,5 +91,19 @@ step1("hi")
     })
 
 
+// Promise comb - all, race, any, allSettled
 
+// async await 
+const handlePromise = async () => {
+    try {
+        const msg1 = await step1("hi");
+        console.log(msg1);
+        const msg2 = await step1("hey");
+        console.log(msg2);
+        const msg3 = await step1("ki");
+        console.log(msg3);
+    } catch (err) {
+        console.log(err);
+    }
+};
 
