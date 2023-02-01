@@ -92,6 +92,67 @@ step1("hi")
 
 
 // Promise comb - all, race, any, allSettled
+const firstFetch = () => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res("THis is the first fetch");
+        }, 800)
+    })
+}
+
+const secondFetch = () => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res("This is the second fetch");
+        }, 400);
+    })
+}
+
+const thirdFetch = () => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            rej("This promise rejected");
+        }, 200);
+    })
+}
+
+// All - return err even if 1 gets rejected
+let data = Promise.all([
+    firstFetch(), secondFetch(), thirdFetch()
+]).then((res) => {
+    console.log(res)
+}).catch((err) => {
+    console.error(err)
+})
+
+// All Settle - return all promises
+let data = Promise.allSettled([
+    firstFetch(), secondFetch(), thirdFetch()
+]).then((res) => {
+    console.log(res)
+}).catch((err) => {
+    console.error(err)
+})
+
+
+// Race - return first called promise( reject or  successdoes not matter)
+let data = Promise.race([
+    firstFetch(), secondFetch(), thirdFetch()
+]).then((res) => {
+    console.log(res)
+}).catch((err) => {
+    console.error(err)
+})
+
+// Any - return first called success promise
+let data = Promise.any([
+    firstFetch(), secondFetch(), thirdFetch()
+]).then((res) => {
+    console.log(res)
+}).catch((err) => {
+    console.error(err)
+})
+
 
 // async await 
 const handlePromise = async () => {
