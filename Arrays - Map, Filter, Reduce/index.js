@@ -79,4 +79,3 @@ const sum = arr.myReduce((acc, curr, currIndex, array) => {
 
 
 
-
