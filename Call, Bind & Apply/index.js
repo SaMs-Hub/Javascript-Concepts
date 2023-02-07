@@ -33,6 +33,7 @@ Function.prototype.customApply = function (context = {}, args = []) {
     if (typeof this !== "function") throw new Error("not a function");
     if (!Array.isArray(args)) throw new Error("Provide array");
     context.fnRef = this;
+    // spreading the contents of args array here
     context.fnRef(...args);
 
 }
