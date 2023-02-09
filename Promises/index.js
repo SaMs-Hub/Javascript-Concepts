@@ -154,7 +154,7 @@ let data = Promise.any([
 })
 
 
-// async await 
+// async await  - optimized way
 const handlePromise = async () => {
     try {
         const msg1 = await step1("hi");
