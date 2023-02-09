@@ -12,6 +12,7 @@ let obj2 = {
     name: 'mes',
 }
 
+// assigns properties of x object to y
 obj2.__proto__ = obj;
 
 console.log(obj.name); // sam
