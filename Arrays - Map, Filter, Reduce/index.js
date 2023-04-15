@@ -8,6 +8,7 @@ const newArr = arr.map((element, elementIndex, array) => {
 
 // Map - Polyfill
 Array.prototype.myMap = function (cbFunction) {
+    // since map returns an array
     let arr = [];
     for (let i = 0; i < this.length; i++) {
         arr.push(cbFunction(this[i], i, this));
