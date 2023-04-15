@@ -37,7 +37,6 @@ Function.prototype.customApply = function (context = {}, args = []) {
     context.fnRef(...args);
 
 }
-
 sayHello.customApply(obj, [33]); 
 
 
