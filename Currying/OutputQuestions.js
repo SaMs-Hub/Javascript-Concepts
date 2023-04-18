@@ -62,9 +62,3 @@ const sum = (a, b, c) => a + b + c;
 console.log(sum(1, 2, 3)); // 6
 const totalSum = curry(sum);
 console.log(totalSum(1)(2)(3));  // 6
-
-
-
-
-
-
