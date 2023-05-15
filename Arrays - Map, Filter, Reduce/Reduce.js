@@ -1,7 +1,3 @@
-// Polyfill
-
-
-
 
 // Reduce can be used in many ways,
 // Aggregation
