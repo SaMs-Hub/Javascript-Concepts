@@ -1,0 +1,105 @@
+#rootDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.parentClass {
+  width: 400px;
+  height: 400px;
+  background-color: red;
+}
+
+.childClass {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#parent1 {
+  position: relative;
+}
+
+#child1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#parent2 {
+  position: relative;
+}
+
+#child2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#parent3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#parent4 {
+  display: flex;
+  justify-content: center;
+}
+
+#child4 {
+  align-self: center;
+}
+
+#parent5 {
+  display: flex;
+}
+
+#child5 {
+  margin: auto;
+}
+
+#parent6 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#parent7 {
+  display: grid;
+  place-items: center;
+}
+
+#parent8 {
+  display: grid;
+}
+
+#child8 {
+  align-self: center;
+  justify-self: center;
+}
+
+#parent9 {
+  display: grid;
+}
+
+#child9 {
+  margin: auto;
+}
+
+#parent10 {
+  display: grid;
+}
+
+#child10 {
+  place-self: center;
+}
